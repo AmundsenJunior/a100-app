@@ -5,6 +5,11 @@ $con = mysqli_connect(DB_HOST,DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if(mysqli_connect_errno()){
 	echo "Failed to connect to MySQL: ".mysqli_connect_error();
 }
+/*if (!$testtable=mysqli_query("desc Apprentices2")) {
+	# code...
+	// echo "testtable=".$testtable."end";
+	include "create_table.php";
+}*/
 $firstName = mysqli_real_escape_string($con, $_POST['fName']);
 $lastName = mysqli_real_escape_string($con, $_POST['lName']);
 $email = mysqli_real_escape_string($con, $_POST['email']);
@@ -29,7 +34,7 @@ if($dupCount>0){
 	echo "A user with this email address and password has already enrolled";
 }else{
 $sql = "INSERT INTO Apprentices2 (fName, lName, email, password, status) 
-VALUES('$firstName', '$lastName', '$email', '$password', '$status')";
+VALUES('$firstName', '$lastName', '$email', sha1('$password'), '$status')";
 
 
 
