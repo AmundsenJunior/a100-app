@@ -3,7 +3,7 @@
 include "cred_ext.php";
 
 //build connection
-$con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+$con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_APP_DATABASE);
 
 //test connection
 if(mysqli_connect_errno()){
