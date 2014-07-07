@@ -11,14 +11,14 @@ if(mysqli_connect_errno()){
 }
 
 $sql = array(
-	"CREATE TABLE identity(
+	"CREATE TABLE IF NOT EXISTS identity(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	first_name VARCHAR(30) NOT NULL, 
 	last_name VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	password VARCHAR(50) NOT NULL
 	)",
-	"CREATE TABLE applications(
+	"CREATE TABLE IF NOT EXISTS applications(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	applicant_id INT UNSIGNED NOT NULL REFERENCES applicants(id),
 	cohort_id INT UNSIGNED NOT NULL REFERENCES `forms_db`.cohorts(id),
@@ -29,7 +29,7 @@ $sql = array(
 	is_complete BIT NOT NULL,
 	submit_timestamp TIMESTAMP NOT NULL
 	)",
-	"CREATE TABLE applicants(
+	"CREATE TABLE IF NOT EXISTS applicants(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	identity_id INT UNSIGNED NOT NULL REFERENCES identity(id),
 	school_id INT UNSIGNED NOT NULL REFERENCES `forms_db`.schools(id),
@@ -45,7 +45,7 @@ $sql = array(
 	age_check BIT NOT NULL,
 	legal_status BIT NOT NULL
 	)",
-	"CREATE TABLE referrals(
+	"CREATE TABLE IF NOT EXISTS referrals(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	option_1 BIT,
 	option_2 BIT,
@@ -59,12 +59,12 @@ $sql = array(
 	option_10 BIT,
 	option_11 VARCHAR(100)
 	)",
-	"CREATE TABLE schedules(
+	"CREATE TABLE IF NOT EXISTS schedules(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	weekly_hours TINYINT UNSIGNED NOT NULL,
 	commitments TEXT NOT NULL
 	)",
-	"CREATE TABLE experiences(
+	"CREATE TABLE IF NOT EXISTS experiences(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	programming_option VARCHAR(100) NOT NULL,
 	work_option VARCHAR(100) NOT NULL,
@@ -75,7 +75,7 @@ $sql = array(
 	cms_experience TEXT,
 	other_experience TEXT
 	)",
-	"CREATE TABLE materials(
+	"CREATE TABLE IF NOT EXISTS materials(
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	resume BLOB NOT NULL,
 	cover_letter BLOB NOT NULL,
@@ -89,7 +89,7 @@ $sql = array(
 		if (mysqli_query($con, $stmt)){
 			echo "Table created successfully. \n";
 		}else{
-			echo "Error executing: " . $stmt . "\nError produced: " . mysqli_error($con);
+			echo "Error executing: " . $stmt . "\nError produced: " . mysqli_error($con) . "\n";
 		}
 	}
 
