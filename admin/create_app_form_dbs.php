@@ -10,14 +10,15 @@
 	}
 
 	// Create database
-	$db_name = "applications_db";
+	$db_names = array("applications_db", "forms_db");
 
-	$sql = "CREATE DATABASE" . $db_name;
-	if(mysqli_query($con,$sql)) {
-		echo "Database" . $db_name . "created successfully. \n";
-	}
-	else {
-		echo "Error creating database: " . mysqli_error($con);
+	foreach ($db_names as $db_name) {
+		$sql = "CREATE DATABASE " . $db_name;
+		if (mysqli_query($con, $sql)){
+			echo "Database created successfully. \n";
+		}else{
+			echo "Error executing: " . $sql . "\nError produced: " . mysqli_error($con);
+		}
 	}
 
 	// Close DB connection
