@@ -12,8 +12,9 @@ The team, LiNeaR Solutions, is comprised of:
 <?php
     DEFINE('DB_USERNAME', 'username');
     DEFINE('DB_PASSWORD', 'password');
-    DEFINE('DB_HOST', 'hostname:port');
-    DEFINE('DB_DATABASE', 'dbname');
+    DEFINE('DB_HOST', 'hostname[:port]');
+    DEFINE('DB_APP_DATABASE', 'applications_db');
+    DEFINE('DB_FORM_DATABASE', 'forms_db');
 ?>
 ```
 This file should be placed within the admin directory, as it is used by that directory's files, via `include` statements.
