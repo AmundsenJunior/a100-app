@@ -7,7 +7,7 @@ $con = mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_FORM_DATABASE);
 
 //test connection
 if(mysqli_connect_errno()){
-	echo "Failed to connect to MySQL: ".mysqli_connect_error();
+	echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
 $sql = array(
@@ -16,20 +16,24 @@ $sql = array(
 	field_name VARCHAR(50) NOT NULL,
 	field_description TEXT,
 	pre_text TEXT,
-	inside_text TINYTEXT,
+	inside_text TEXT,
 	post_text TEXT,
 	section_id INT UNSIGNED NOT NULL REFERENCES sections(section_id),
 	arrange TINYINT UNSIGNED NOT NULL,
-	is_dependent BIT NOT NULL,
-	parent_field_id INT UNSIGNED NOT NULL REFERENCES field_id,
+	options_target VARCHAR(30),
 	is_required BIT NOT NULL,
 	is_active BIT NOT NULL
 	)",
 	"CREATE TABLE IF NOT EXISTS sections(
 	section_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	section_name VARCHAR(50) NOT NULL,
+	section_description TEXT,
 	arrange TINYINT UNSIGNED NOT NULL,
 	is_active BIT NOT NULL
+	)",
+	"CREATE TABLE IF NOT EXISTS states(
+	state_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	state_name VARCHAR(50) NOT NULL
 	)",
 	"CREATE TABLE IF NOT EXISTS schools(
 	school_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -42,24 +46,12 @@ $sql = array(
 	cohort_decription TEXT,
 	is_active BIT NOT NULL
 	)",
-	"CREATE TABLE IF NOT EXISTS referrals(
-	referral_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	option_name VARCHAR(50) NOT NULL,
+	"CREATE TABLE IF NOT EXISTS question_options(
+	q_option_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	field_id INT UNSIGNED NOT NULL REFERENCES fields(field_id),
+	option_name VARCHAR(150) NOT NULL,
 	option_description TEXT,
-	arrange TINYINT UNSIGNED NOT NULL,
-	is_active BIT NOT NULL
-	)",
-	"CREATE TABLE IF NOT EXISTS programming_experience(
-	prog_exp_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	level_name VARCHAR(50) NOT NULL,
-	level_description TEXT,
-	arrange TINYINT UNSIGNED NOT NULL,
-	is_active BIT NOT NULL
-	)",
-	"CREATE TABLE IF NOT EXISTS work_experience(
-	work_exp_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	level_name VARCHAR(50) NOT NULL,
-	level_description TEXT,
+	input_type VARCHAR(30),
 	arrange TINYINT UNSIGNED NOT NULL,
 	is_active BIT NOT NULL
 	)"
