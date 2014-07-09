@@ -27,7 +27,7 @@ $sql = array(
 		",
 	"INSERT INTO `forms_db`.`sections` (`section_id`, `section_name`, `section_description`, `arrange`, `is_active`) VALUES 
 		(NULL, 'Identity', NULL, '1', b'1'), 
-		(NULL, 'Personal Details', '2', b'1'), 
+		(NULL, 'Personal Details', NULL, '2', b'1'), 
 		(NULL, 'Schedule Information', NULL, '3', b'1'), 
 		(NULL, 'Technical Experience', NULL, '4', b'1'), 
 		(NULL, 'Supplemental Materials', 'We ask for a resume, cover letter, and references from at least 2 people who can attest to your suitability to work as a software developer. If you don''t yet have a resume or cover letter, feel free to submit without them for now, but make sure to complete your application by e-mailing them to krishna@indie-soft.com within TWO days of your submission.', '5', b'1')
