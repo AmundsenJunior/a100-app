@@ -148,7 +148,7 @@ $sql = array(
 
 	foreach ($sql as $stmt) {
 		if (mysqli_query($con, $stmt)){
-			echo "Table created successfully. \n";
+			echo "Table updated successfully. \n";
 		}else{
 			echo "Error executing: " . $stmt . "\nError produced: " . mysqli_error($con) . "\n";
 		}
