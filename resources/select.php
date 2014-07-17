@@ -14,15 +14,26 @@
 	/*
 		HTML form variable 		MySQL test_db.Apprentices2 field 	PHP variable
 		fname 					FirstName 							firstname
-		mname 					MiddleName 							middlename
 		lname 					LastName 							lastname
-		dbirth 					DayBirth 							daybirth
-		mbirth 					MonthBirth 							monthbirth
-		ybirth 					YearBirth 							yearbirth
-		gender 					Gender 								gender
-		age 					AgeCheck 							agecheck
+		email   				Email 								email
+		password 				Password 							password
+		status 					status 								status
 	*/
 
+
+	
+
+	/*if(!empty($_GET['email'])){// If just the applicant login, return his own application data.
+
+	  			//get the number of mistake
+	  	$email=$_GET['email'];
+	  	$result = mysqli_query($con, "SELECT * FROM Apprentices2 where email='$email'");		
+	  	echo '<p><a href="../index.php">Click here to go to gateway</a></p>';
+	  	// echo "<p><a href=\"update_applicant.php\">Click here to go to update_page</a></p>";
+	 }else{
+	 	$result = mysqli_query($con, "SELECT * FROM Apprentices2");
+	 }
+*/
 	$result = mysqli_query($con, "SELECT * FROM Apprentices2");
 
 	echo "<table border='1'>
@@ -42,7 +53,8 @@
 		echo "<td>" . $row['lName'] . "</td>";
 		echo "<td>" . $row['email'] . "</td>";
 		echo "<td>" . $row['password'] . "</td>";
-		if($row['status']==0){
+		// echo "<td> Not visible </td>";// Password is not visible.
+			if($row['status']==0){
 			echo"<td>incomplete</td>";
 			}elseif($row['status']==1){
 				echo "<td>complete</td>";
