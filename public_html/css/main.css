@@ -1,0 +1,496 @@
+
+
+/* Authors: A100 Apprentice Team C++
+ * Members: Chris Impastato, Julio Mansilla, Duke Noi, Carrrington Ward
+ * 
+ * Built as part of the Apprentice100 Program
+ * Winter Cohort 2014 */
+
+
+
+/** GLOBAL STYLES
+ ********************/
+
+  html { height: 100%; }
+  
+  body {
+    background: white;
+    color: #f5f6f7;
+    height: 100%; }
+
+  *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: none; }
+
+  a:link,
+  a:visited,
+  a:active {
+    font-weight: 600;
+    color: #f5f6f7;
+    text-decoration: none; }
+
+  a:link:hover,
+  a:visited:hover,
+  a:active:hover {
+    color: #e1e1e1;
+      -webkit-transition: color 1s;
+      -moz-transition: color 1s;
+      -ms-transition: color 1s;
+      -o-transition: color 1s;
+      transition: color 1s; }
+
+
+/** CONTENT MODULES
+ ********************/
+
+  /* MODULES */
+    
+    /* Backgrounds */
+
+      #employerCallOut { background: #7b1219; }
+
+      #programXS,
+      #program,
+      #testimonials,
+      #curriculum {
+        background: #006496;
+        padding: 50px; }
+
+      #technologies,
+      #tuition,
+      #applicants {
+        background: white;
+        padding: 50px; }
+
+	  #samples,
+      #skills,
+      #apply,
+      #applyXS,
+      #contact {
+        background: #ebecee;
+        padding: 50px; }
+
+      #footer,
+      #networks {
+        background: #3e3e3e;
+        padding: 50px; }
+
+      .noTopPadding { padding-top: 0px; }
+
+      .noBottomPadding { padding-bottom: 0px; }
+	  
+	  .fsLightbox {
+		display:none; }
+
+	  .fsLightboxClose {
+		padding-bottom:0px; }
+		
+	  .fsLightboxContent {
+		height:550px;
+		width:650px;
+		padding-top:0px;
+		overflow:auto; }
+
+    /* Type */
+
+      /* Alignment */
+        .centered { text-align: center; }
+
+        .rightAlign { text-align: right; }
+
+        .leftAlign { text-align: left; }
+
+        .allCaps { text-transform: uppercase; }
+
+      /* Margins */
+        .topMarginSmall { margin-top: 30px; }
+
+        .topMarginMedium { margin-top: 50px; }
+
+        .topMarginBig {margin-top: 100px; }
+
+        .bottomMargin { margin-bottom: 30px; }
+
+      /* Sizing */
+        .small { font-size: 1em; }
+
+      /* Headers */
+        .headerDarkBG {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.4em;
+            letter-spacing: -.045em;
+            line-height: 1.3em;
+            color: white; }
+
+        .headerLightBG {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 1.4em;
+          letter-spacing: -.045em;
+          line-height: 1.3em;
+          color: black; }
+		  
+		 .headerLightBGsmall {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 1.2em;
+          font-size: 1.2em;
+          letter-spacing: -.045em;
+          line-height: 1.3em;
+          color: black; }
+
+        .headerDarkBGXS {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 1.1em;
+          letter-spacing: -.045em;
+          line-height: 1.3em;
+          color: white; }
+
+
+      /* Content */
+        .textDarkBG {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          font-size: 1.15em;
+          letter-spacing: -.045em;
+          color: white; }
+
+        .textLightBG {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          font-size: 1.15em;
+          letter-spacing: -.045em;
+          color: #7b7c7f; }
+
+        .textDarkBGXS {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 400;
+          font-size: 1em;
+          letter-spacing: -.045em;
+          color: white; }
+
+
+    /* HERO */
+      #hero {
+        display: table;
+        background: url("../img/heroBG.jpg") no-repeat;
+        background-size: 100% auto;
+        width: 100%;
+        min-height: 100%;
+        text-align: center; }
+
+      #heroContent {
+        display: table-cell;
+        vertical-align: middle; }
+
+      /* Type */
+        .heading {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 3em;
+          letter-spacing: -.035em;
+          line-height: .95em;
+          color: #3e3e3e;
+          padding-top: 20px;
+          padding-left: 5%;
+          padding-right: 5% }
+
+        .heading {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 2.75em;
+          letter-spacing: -.035em;
+          line-height: 1em;
+          color: #3e3e3e;
+          padding-top: 20px;
+          padding-left: 5%;
+          padding-right: 5%;  }
+
+        .subheading {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          font-size: 1.25em;
+          letter-spacing: -.045em;
+          line-height: 1.1em;
+          color: #7b7c7f;
+          padding-left: 5%;
+          padding-right: 5%; }
+		  
+		.faqheading {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+          font-size: 2.00em;
+          letter-spacing: -.045em;
+          line-height: 1.1em;
+          color: black;
+          padding-right: 5%; }
+		  
+        .bumpLink {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 1.2em;
+          letter-spacing: -.045em;
+          /*background: #7b1219;
+          position: relative;
+          top: 10%;
+          left: 53%; */
+          color: #7b1219;
+		  padding-left: 10%; }
+
+        .moreInfo {
+         bottom: 30px;
+         left: 45.85%;
+          position: absolute;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 400;
+          font-size: 12pt;
+          letter-spacing: -.04em;
+          line-height: 1.1em;
+          color: #919191; }
+
+      /* Images */
+
+        #heroContentMain .img { 
+           max-height: 45%;
+           width: auto; }
+
+      /* Links */
+        #heroContent a:hover {
+          color: #0091ba;
+            -webkit-transition: color 1s;
+            -moz-transition: color 1s;
+            -ms-transition: color 1s;
+            -o-transition: color 1s;
+            transition: color 1s;}
+
+        #heroContent a {
+          color: #7b7c7f;
+          text-decoration: none; }
+          text-decoration: none; }
+		  
+	  
+
+
+    /* PROGRAM */
+      /* Type */
+        .emphasis {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+          text-align: center;
+          font-style: italic;
+          font-size: 1.25em; }
+
+
+    /* TESTIMONIALS */
+      /* Text */
+        .testimonialQuote {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+          font-style: italic;
+          line-height: 1.2em;
+          font-size: 1.3em;
+          color: white;
+          margin-top: 10px; }
+
+        .testimonialSource {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+          font-style: italic;
+          font-size: 1.1em;
+          color: white; }
+
+      /* Images */
+        .topPadding { padding-top: 1px; }
+
+    
+    /* TECHNOLOGIES */
+
+      /* Tables */
+        #technologies tr td {
+          padding-top: 20px;
+          text-align: center;
+          vertical-align: middle; }
+
+      /* Images */
+        .techLogo {
+          width: 120px;
+          height: auto;
+          padding: 5px; }
+
+    
+    /* SKILLS */
+      /* Type */
+        .iconText {
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 700;
+          font-size: 1.05em;
+          letter-spacing: -.005em;
+          line-height: 1.25em;
+          color: #3e3e3e;
+          padding-top: 10px; }
+
+      /* Images */
+
+      /* Tables */
+        #skills tr td { padding-top: 20px; }
+
+
+    /* CURRICULUM */
+
+      .test {
+        text-align: center;
+        vertical-align: middle; }
+      
+      /* Type */
+        .curriculumHeader {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 3em;
+          line-height: .9em;
+          letter-spacing: -0.045em;
+          color: white;
+          text-align: left; }
+
+        .curriculumHeader2 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 1.4em;
+          line-height: 1.1em;
+          letter-spacing: -0.01em;
+          color: #3e3e3e;
+          text-align: left; }
+		  
+	/* Forms */
+		#form_text {
+		  color: #000;
+		  text-align: right;
+		  margin: 0 0 5px; }
+
+   
+    /* CONTACT */
+    
+      /* Type */
+        .contactHeader {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+          font-size: 1.3em;
+          letter-spacing: -.01em;
+          text-align: left;
+          color: #3e3e3e; }
+        
+        .contactText {
+           font-family: 'Open Sans', sans-serif;
+           font-weight: 400;
+           font-size: 1em;
+           color: #888d90; }
+
+      /* Images */
+        #contact i {
+          font-size: 25px;
+          color: #888d90;
+          text-align: left; }
+
+        .marginRight { margin-right: 20px; }
+
+        #contact .facebook:hover { color: #3b5998; }
+
+        #contact .twitter:hover { color: #2094CA; }
+
+        #contact .mail:hover { color: #f39c12; }
+
+
+
+
+/** MOBILE CONTENT MODULES
+ ******************************/
+
+  /* Backgrounds XS */
+    #employerXS {
+        background: #006496;
+        padding: 5px; }
+
+    #testimonialsXS,
+    #programXS {
+      background: #006496;
+      padding: 50px; }
+
+    #contactXS {
+      background: #ebecee;
+      padding: 50px; }
+
+
+  /* HERO XS */
+
+    /* Type */
+      .subheadingXS {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 1.1em;
+        letter-spacing: -.045em;
+        line-height: 1.1em;
+        /*color: #7F8C8D;*/
+        color: #7b7c7f; }
+
+      .subheadingXS a:hover {
+          color: #0091ba;
+            -webkit-transition: color 1s;
+            -moz-transition: color 1s;
+            -ms-transition: color 1s;
+            -o-transition: color 1s;
+            transition: color 1s; }
+
+      .subheadingXS a {
+          color: #7b7c7f;
+          text-decoration: none; }
+
+      .companyLinkXS {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        font-size: .95em;
+        letter-spacing: -.045em;
+        color: #7b1219; }
+
+    /* Images */
+      .heroApplyXS {
+        padding-top: 15px;
+        padding-bottom: 50px; }
+
+
+  /* Program XS */
+    /* Type */
+      .emphasisXS {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        text-align: center;
+        font-style: italic;
+        font-size: 1.1em; }
+
+
+  /* Employer XS */
+    /* Text */
+      .employerXS {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        font-size: .70em;
+        letter-spacing: -.045em;
+        color: white; }
+
+
+  /* Contact XS */
+
+    /* Images */
+        #contactXS i {
+          font-size: 25px;
+          color: #888d90;
+          margin-right: 20px;
+          text-align: left; }
+
+        #contactXS .facebook:hover { color: #3b5998; }
+
+        #contactXS .twitter:hover { color: #2094CA; }
+
+        #contactXS .mail:hover { color: #f39c12; }

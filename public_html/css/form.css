@@ -1,0 +1,41 @@
+/* A100 Application Form Stylesheet */
+
+html { 
+	height: 100%; 
+}
+
+body {
+	background: #e0e0e0;
+	height: 100%;
+}
+
+.container,
+.container-fluid {
+	background: white;
+	max-width: 80%;
+	padding: 15%;
+}
+
+.form {
+  max-width: 80%;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+/* Alignment */
+.centered { text-align: center; }
+
+.rightAlign { text-align: right; }
+
+.leftAlign { text-align: left; }
+
+.allCaps { text-transform: uppercase; }
+
+/* Margins */
+.topMarginSmall { margin-top: 30px; }
+
+.topMarginMedium { margin-top: 50px; }
+
+.topMarginBig {margin-top: 100px; }
+
+.bottomMargin { margin-bottom: 30px; }
