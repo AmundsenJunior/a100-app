@@ -28,7 +28,7 @@ $ cd ~/dev
 $ git clone https://github.com/AmundsenJunior/a100-app.git
 ```
 
-Create a symbolic link to the site directory in /var/www:
+Create a symbolic link to the site directory in ```/var/www```:
 ```
 $ sudo ln -sT ~/dev/a100-app /var/www/a100-app
 ```
@@ -38,16 +38,14 @@ Copy the amp-test Apache config, and update the pointer for ```DocumentRoot```:
 $ sudo cp /etc/apache2/sites-available/amp-test /etc/apache2/sites-available/a100-app
 $ sudo nano /etc/apache2/sites-available/a100-app
     DocumentRoot /var/www/a100-app
-    ^x
 ```
 
 Copy the external credentials from your amp-test directory, and update for the two DBs this site uses:
 ```
 $ cp ~/dev/amp-test/db_scripts/cred_ext.php ~/dev/a100-app/admin/cred_ext.php
 $ nano ~/dev/a100-app/admin/cred_ext.php
-Change, per README.md for a100-app:
-     DEFINE('DB_APP_DATABASE', 'applications_db');
-     DEFINE('DB_FORM_DATABASE', 'forms_db');
+    DEFINE('DB_APP_DATABASE', 'applications_db');
+    DEFINE('DB_FORM_DATABASE', 'forms_db');
 ```
 
 Execute the database build scripts:
