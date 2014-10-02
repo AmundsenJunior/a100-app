@@ -35,7 +35,7 @@ $ sudo ln -sT ~/dev/a100-app /var/www/a100-app
 
 Copy the amp-test Apache config, and update the pointer for ```DocumentRoot```:
 ```
-$ sudo cp /etc/apache2/sites-available/amp-test /etc/apache2/sites-available/a100-app
+$ sudo cp /etc/apache2/sites-available/amp-test.conf /etc/apache2/sites-available/a100-app.conf
 $ sudo nano /etc/apache2/sites-available/a100-app
     DocumentRoot /var/www/a100-app
 ```
